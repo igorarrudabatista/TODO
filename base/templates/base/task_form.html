@@ -1,0 +1,37 @@
+{% extends 'base/task_list.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+   <div class="mail-detail">
+    <div class="mail-detail-header">
+     <div class="mail-detail-profile">
+      <img src="https://assets.codepen.io/3364143/Screen+Shot+2020-08-01+at+12.24.16.png" alt="" class="members inbox-detail" />
+      <div class="mail-detail-name">Olá, {{request.user}}</div>
+     </div> </div> </div>
+
+
+{% comment %} <a href="{% url 'tasks' %}"> Voltar </a> {% endcomment %}
+
+     <form  method="POST"  >
+    {% csrf_token %}
+      <div class="form-row">
+    <div class="col">
+    <br>
+    {% comment %} < class="control">
+    <input class="input" type="text" placeholder="Título"> 
+    {{form.title}} {% endcomment %}
+ 
+                 {% comment %} <div class="form-group">  <b> Título: </b>  {{form.title}} </div>
+                 <div class="form-group">  <b> Descrição: </b>  {{form.description}} </div>
+                 <div class="form-group">  <b> Tipo: </b>  {{form.tipo}} </div>
+                 <div class="custom-control"> </b> Status da Tarefa: </b>  {{form.complete}} </div>
+                 <input type="checkbox" name="msg" id="mail30" class="mail-choice"> {% endcomment %}
+
+{{form|crispy}}
+
+                <input type="submit" value="Salvar" class="add-button" name="action">          
+
+    </form>
+</div></div></div>
+
+     {% endblock content %}

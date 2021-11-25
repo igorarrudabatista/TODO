@@ -1,0 +1,16 @@
+{% extends 'base/task_list.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+ <div class="mail-detail">
+    <div class="mail-detail-header">
+     <div class="mail-detail-profile">
+      <img src="{{user.profile.image.url}}" alt="" class="members inbox-detail" />
+      <div class="mail-detail-name">Olá,   <b style="text-transform: capitalize"/>  {{user.username}}  </b>
+            <p class="text-secondary"> {{user.email}} </p>
+          <br> <br>  
+          {{user.profile.image}}
+     </div>
+    
+
+{%endblock%}

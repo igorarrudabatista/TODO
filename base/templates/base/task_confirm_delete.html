@@ -1,0 +1,50 @@
+{% extends 'base/task_list.html' %}
+
+{% block content %}
+
+{% comment %} <a href="{% url 'tasks' %}"> Voltar </a>
+<form method="POST">
+{% csrf_token%}
+<p> Tem certeza que irá deletar a tarefa "{{task.title}}" ? </p>
+<input type="submit" value="Sim Deletar " />
+<a href="{% url 'tasks' %}"> Não Voltar </a>
+
+</form> {% endcomment %}
+
+
+  <div id="error-box">
+    
+    <div class="dot two"></div>
+    <div class="face2">
+      <div class="eye"></div>
+      <div class="eye right"></div>
+      <div class="mouth sad"></div>
+    </div>
+    <div class="shadow move"></div>
+    <form method="POST">
+    {% csrf_token%}
+
+    <button class="button-box">
+        <h1 class="red">Excluir</h1></button>
+
+    </form>
+</div>
+  <div id="success-box">
+    <div class="dot"></div>
+    <div class="dot two"></div>
+    <div class="face">
+      <div class="eye"></div>
+      <div class="eye right"></div>
+      <div class="mouth happy"></div>
+    </div>
+    <div class="shadow scale"></div>
+    <button class="button-box" name="button" type="submit" onclick="location.href='{% url "tasks" %}'">
+        <h1 class="green"> Cancelar </h1></button>
+
+  </div>
+  </div>
+</div>
+
+
+
+{%endblock%}
