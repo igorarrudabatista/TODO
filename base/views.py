@@ -14,7 +14,7 @@ from django.views.generic import TemplateView
 
 
 from .models import Task
-from .forms import TaskForm
+from .forms import TaskForm, UserUpdateForm, ProfileUpdateForm
 
 # Aqui comeca o pagode... 
 
@@ -22,8 +22,17 @@ from .forms import TaskForm
 #     return render(request, 'base/profile.html')
 
 class ProfilePage(LoginRequiredMixin, TemplateView):
-    template_name = "base/profile.html" 
-
+      template_name = "base/profile.html" 
+      
+def ProfilePage(request):      
+      u_form = UserUpdateForm()
+      p_form = ProfileUpdateForm()
+    
+      context = {
+        'u_form' : u_form,
+        'p_form' : p_form
+    }
+      return render (request, 'base/profile.html', context)
 
 class HomeView(LoginRequiredMixin, TemplateView):
     template_name = "home.html" 

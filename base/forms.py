@@ -1,6 +1,8 @@
 from django import forms
-
 from .models import *
+
+from django.contrib.auth.models import User
+from .models import Profile
 
 
 class TaskForm(forms.ModelForm):
@@ -19,6 +21,17 @@ class TaskForm(forms.ModelForm):
             'description': 'Descrição',
             'complete': 'Status da tarefa'
         }
+
+
+class UserUpdateForm(forms.ModelForm):
+    email = forms.EmailField()
+    
+    class Meta:
+        model = User
+        fields = ['username', 'email']
         
-        # <input type="checkbox" name="msg" id="mail30" class="mail-choice">
-        #          <label for="mail30">{{form.complete}}
+class ProfileUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        field = ['image']
+        
