@@ -4,7 +4,6 @@ from datetime import datetime
 from django.db.models.deletion import CASCADE
 from django.utils import timezone
 
-
 # Create your models here.
 
 TIPOS_TASKS = (
@@ -27,8 +26,7 @@ class Task(models.Model):
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     image = models.ImageField(default='default.jpg', upload_to='profile_pics') 
-       
-  
+         
     def __str__(self):
         return f'{self.user.username} Profile'
 

@@ -13,7 +13,7 @@ from django.contrib.auth import login
 from django.views.generic import TemplateView
 
 
-from .models import Task
+from .models import Task, Profile
 from .forms import TaskForm, UserUpdateForm, ProfileUpdateForm
 
 # Aqui comeca o pagode... 
@@ -21,18 +21,19 @@ from .forms import TaskForm, UserUpdateForm, ProfileUpdateForm
 # def ProfilePage(request):
 #     return render(request, 'base/profile.html')
 
-class ProfilePage(LoginRequiredMixin, TemplateView):
+class ProfilePage(LoginRequiredMixin, TemplateView, CreateView) :
       template_name = "base/profile.html" 
       
-def ProfilePage(request):      
-      u_form = UserUpdateForm()
-      p_form = ProfileUpdateForm()
+      def profile(request):
+        if request.method == 'POST':
+            u_form = UserUpdateForm()
+            p_form = ProfileUpdateForm()
     
-      context = {
-        'u_form' : u_form,
-        'p_form' : p_form
+        context = {
+            'u_form' : u_form,
+            'p_form' : p_form
     }
-      return render (request, 'base/profile.html', context)
+      #render (context)
 
 class HomeView(LoginRequiredMixin, TemplateView):
     template_name = "home.html" 
