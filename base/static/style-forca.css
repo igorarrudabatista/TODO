@@ -1,0 +1,29 @@
+
+svg {
+  width: 200px;
+  height: 200px;
+}
+
+#text {
+  background: aliceblue;
+  height: 2px;
+  min-width: 10px;
+  padding: 25px;
+}
+
+section {
+  display: flex;
+}
+
+#head, #arm-l, #arm-r, #leg-l, #leg-r, #torso {
+  display: none;
+}
+
+#letters {
+  font-size: 15px;
+}
+
+#prompt {
+  font-size: 15px;
+  margin-top: 10px;
+}

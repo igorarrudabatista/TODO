@@ -6,8 +6,7 @@ body {
 
 .card {
   position: relative;
-  top: 5vh;
-  right: -90px;
+  top: 20vh;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   border-radius: 0.75em;
   padding: 0;
@@ -86,13 +85,13 @@ body {
   border-bottom-right-radius: 0.75em;
 }
 .card-bottom .card-title {
-  font-weight: 200;
+  font-weight: 100;
 }
 
 .circle-button {
   position: absolute;
   bottom: 0;
-  right: -10.5em;
+  right: 3.5em;
   width: 70px;
   height: 70px;
   font-size: 1.5em;
@@ -115,4 +114,7 @@ body {
 .closeRotate {
   transform: rotate(45deg);
 }
+
+body, h1, h2, h3, h4, h5, h6, p {
+  font-family: Work Sans;
 }
