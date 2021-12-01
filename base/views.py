@@ -21,19 +21,20 @@ from .forms import TaskForm, UserUpdateForm, ProfileUpdateForm
 # def ProfilePage(request):
 #     return render(request, 'base/profile.html')
 
-class ProfilePage(LoginRequiredMixin, TemplateView, CreateView) :
+class ProfilePage(LoginRequiredMixin, TemplateView) :
       template_name = "base/profile.html" 
       
       def profile(request):
         if request.method == 'POST':
-            u_form = UserUpdateForm()
-            p_form = ProfileUpdateForm()
+            u_form = UserUpdateForm(instance=request.user)
+            p_form = ProfileUpdateForm(instance=request.user.profile)
+     
     
         context = {
             'u_form' : u_form,
             'p_form' : p_form
     }
-      #render (context)
+        return render(request, 'base/profile.html', context)
 
 class HomeView(LoginRequiredMixin, TemplateView):
     template_name = "home.html" 
@@ -92,19 +93,15 @@ class TaskDetail(LoginRequiredMixin, DetailView):
     model = Task
     context_object_name = 'task'
     template_name = 'base/task.html'
-    
+    def get_context_data(self, **kwargs):
+            context = super().get_context_data(**kwargs)
+            
+            return context
 
-
-
-
-    
-
-    
-    
-
-class TaskCreate(CreateView):
+class TaskCreate(LoginRequiredMixin, CreateView):
     model = Task
     form_class = TaskForm
+
     # fields = '__all__'
     #fields = ['title', 'description', 'complete', 'date']
     

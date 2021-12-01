@@ -5,8 +5,10 @@
    <div class="mail-detail">
     <div class="mail-detail-header">
      <div class="mail-detail-profile">
-      <img src="https://assets.codepen.io/3364143/Screen+Shot+2020-08-01+at+12.24.16.png" alt="" class="members inbox-detail" />
-      <div class="mail-detail-name">Olá, {{request.user}}</div>
+      <img src="{{user.profile.image.url}}" alt="" class="members inbox-detail" />
+      <div class="mail-detail-name">Olá,  <b style="text-transform: capitalize" />  
+          {{user.username}}. </b>
+           <br>Crie sua tarefa aqui.</div>
      </div> </div> </div>
 
 
