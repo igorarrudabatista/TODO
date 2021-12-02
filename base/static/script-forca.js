@@ -7,9 +7,12 @@ var button = document.getElementById("go");
 
 // these are our words
 var words = [
-  "tarefas",
-  "webmonkey",
-  "fish",
+  "TAREFAS",
+  "WEBMONKEY",
+  "OBJETIVO",
+  "FOCO",
+  "COMPROMISSO",
+  "DISCIPLINA",
   
 ];
 
